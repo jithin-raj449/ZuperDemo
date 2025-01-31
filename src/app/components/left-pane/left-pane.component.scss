@@ -1,0 +1,25 @@
+$border-color: #e7e7e7;
+
+.field-group-list {
+    li {
+        border: 1px solid $border-color;
+        border-radius: 8px;
+        color: #404040;
+
+        span {
+            font-weight: 400;
+        }
+
+        &:hover,
+        &:focus {
+            opacity: 0.7;
+            cursor: pointer;
+        }
+    }
+
+    .line {
+        height: 2px;
+        background: $border-color;
+        margin: 10px 0;
+    }
+}
