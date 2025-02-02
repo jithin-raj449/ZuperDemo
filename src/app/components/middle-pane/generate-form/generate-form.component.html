@@ -7,7 +7,7 @@
         </div>
 
         <div class="right p-4 w-full">
-            <div class="flex align-center justify-between mb-3">
+            <div class="flex align-center justify-between mb-1">
                 <label class="block text-gray-700 font-medium mb-1" [ngClass]="{ 'required': field.required }">
                     {{ field.label }}
                 </label>
@@ -22,24 +22,24 @@
                 </div>
             </div>
 
-            <div class="description">
+            <div class="description mb-2">
                 <span>
-                    {{ field.descrption }}
+                    {{ field.description }}
                 </span>
             </div>
 
             <div>
                 @switch (field.type) {
                 @case ('single_line_text') {
-                <input type="text" placeholder="Enter text" class="w-full p-2 border rounded-md" />
+                <input type="text" [placeholder]="field.placeholder" class="w-full p-2 border rounded-md" />
                 }
 
                 @case ('multi_line_text') {
-                <textarea placeholder="Enter text" class="w-full p-2 border rounded-md"></textarea>
+                <textarea [placeholder]="field.placeholder" class="w-full p-2 border rounded-md"></textarea>
                 }
 
                 @case ('integer') {
-                <input type="number" placeholder="Enter number" class="w-full p-2 border rounded-md" />
+                <input type="number" [placeholder]="field.placeholder" class="w-full p-2 border rounded-md" />
                 }
 
                 @case ('date') {

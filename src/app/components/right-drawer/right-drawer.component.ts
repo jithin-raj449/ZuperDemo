@@ -6,7 +6,7 @@ import { SvgIconComponent } from "../../shared/svg-icon/svg-icon.component";
 
 @Component({
   selector: 'app-right-drawer',
-  imports: [CommonModule, FormsModule, SvgIconComponent],
+  imports: [CommonModule, FormsModule],
   templateUrl: './right-drawer.component.html',
   styleUrl: './right-drawer.component.scss'
 })
@@ -31,7 +31,7 @@ export class RightDrawerComponent {
     },
     {
       label: 'Placeholder',
-      elements: ['single_line_text', 'multi_line_text'],
+      elements: ['single_line_text', 'multi_line_text', 'integer'],
       type: 'text',
       feild: 'placeholder'
     },

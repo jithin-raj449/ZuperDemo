@@ -6,6 +6,8 @@
         <div class="p-4 mt-4">
             @for (item of fieldList; track $index) {
             <div class="mb-2 p-2">
+
+                @if(item.elements.includes(editElement.type)) {
                 @switch (item.type) {
                 @case ('text') {
                 <label [for]="item.feild">{{ item.label }}</label>
@@ -16,6 +18,7 @@
                 <label class="flex items-center space-x-2">
                     <span>{{ item.label }}</span> <input type="checkbox" [(ngModel)]="editElement[item.feild]" />
                 </label>
+                }
                 }
                 }
             </div>
