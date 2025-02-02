@@ -1,0 +1,96 @@
+<div class=" mt-4 h-full" (drop)="onDrop($event)" (dragover)="allowDrop($event)">
+    @for (field of formFields; track $index) {
+    <div class="bg-white rounded-md shadow-sm mb-3 relative flex">
+
+        <div class="left p-4 grid place-items-center" style="border-right: 1px solid #e7e7e7;">
+            <app-svg-icon name="drag"></app-svg-icon>
+        </div>
+
+        <div class="right p-4 w-full">
+            <div class="flex align-center justify-between mb-3">
+                <!-- <button (click)="removeField($index)" class="absolute top-2 right-2 text-red-500 hover:text-red-700">
+                    ✖️
+                </button> -->
+
+
+
+                <label class="block text-gray-700 font-medium mb-1">
+                    {{ field.type }}
+                </label>
+
+                <div class="action-list flex gap-2">
+                    <app-svg-icon name="edit"></app-svg-icon>
+
+                    <app-svg-icon name="duplicate"></app-svg-icon>
+
+                    <app-svg-icon [id]="$index" (iconClick)="removeField($event)" name="delete"></app-svg-icon>
+
+                </div>
+            </div>
+
+            <div>
+                @switch (field.type) {
+                @case ('Single Line Text') {
+                <input type="text" placeholder="Enter text" class="w-full p-2 border rounded-md" />
+                }
+
+                @case ('Multi Line Text') {
+                <textarea placeholder="Enter text" class="w-full p-2 border rounded-md"></textarea>
+                }
+
+                @case ('Integer') {
+                <input type="number" placeholder="Enter number" class="w-full p-2 border rounded-md" />
+                }
+
+                @case ('Date') {
+                <input type="date" class="w-full p-2 border rounded-md" />
+                }
+
+                @case ('Time') {
+                <input type="time" class="w-full p-2 border rounded-md" />
+                }
+
+                @case ('Date & Time') {
+                <input type="datetime-local" class="w-full p-2 border rounded-md" />
+                }
+
+                @case ('Dropdown') {
+                <select class="w-full p-2 border rounded-md">
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                </select>
+                }
+
+                @case ('Single Selection') {
+                <div class="space-y-1">
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="single-{{ $index }}" /> <span>Option 1</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="single-{{ $index }}" /> <span>Option 2</span>
+                    </label>
+                </div>
+                }
+
+                @case ('Multi Selection') {
+                <div class="space-y-1">
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" /> <span>Option 1</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" /> <span>Option 2</span>
+                    </label>
+                </div>
+                }
+
+                @case ('Upload') {
+                <input type="file" class="w-full p-2 border rounded-md" />
+                }
+                }
+            </div>
+        </div>
+
+    </div>
+    }
+</div>

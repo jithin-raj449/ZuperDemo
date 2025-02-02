@@ -4,10 +4,11 @@ import { FieldGroup } from '../../models';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SvgIconComponent } from "../../shared/svg-icon/svg-icon.component";
 import { CommonModule } from '@angular/common';
+import { GenerateFormComponent } from "./generate-form/generate-form.component";
 
 @Component({
   selector: 'app-middle-pane',
-  imports: [FormsModule, SvgIconComponent, ReactiveFormsModule, CommonModule],
+  imports: [FormsModule, SvgIconComponent, ReactiveFormsModule, CommonModule, GenerateFormComponent],
   templateUrl: './middle-pane.component.html',
   styleUrl: './middle-pane.component.scss'
 })
@@ -44,22 +45,5 @@ export class MiddlePaneComponent implements OnInit {
   }
 
 
-  formFields: any[] = [];
-
-  onDrop(event: DragEvent) {
-    event.preventDefault();
-    const data = event.dataTransfer?.getData('application/json');
-    if (data) {
-      this.formFields.push(JSON.parse(data));
-    }
-  }
-
-  allowDrop(event: DragEvent) {
-    event.preventDefault();
-  }
-
-  removeField(index: number) {
-    this.formFields.splice(index, 1);
-  }
 
 }

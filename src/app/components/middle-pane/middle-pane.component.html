@@ -1,4 +1,4 @@
-<div class="middle-pane-layout">
+<div class="middle-pane-layout h-full flex flex-col">
     <div class="filed-group-header bg-white p-5 panel" [formGroup]="editForm">
         <div class="flex items-center justify-between">
 
@@ -39,41 +39,7 @@
         </div>
 
     </div>
-</div>
-
-<div class="p-4 bg-gray-50 rounded-lg shadow-md h-full min-h-[500px]" (drop)="onDrop($event)"
-    (dragover)="allowDrop($event)">
-    <h2 class="text-xl font-bold mb-4 text-center text-gray-600">Drag & Drop Form Elements Here</h2>
-
-    <div *ngFor="let field of formFields; let i = index" class="p-4 bg-white rounded-md shadow-sm mb-3 relative">
-        <button (click)="removeField(i)" class="absolute top-2 right-2 text-red-500 hover:text-red-700">✖️</button>
-
-        <label class="block text-gray-700 font-medium mb-1">{{ field.type }}</label>
-
-        <ng-container [ngSwitch]="field.type">
-            <input *ngSwitchCase="'Single Line Text'" type="text" placeholder="Enter text"
-                class="w-full p-2 border rounded-md" />
-            <textarea *ngSwitchCase="'Multi Line Text'" placeholder="Enter text"
-                class="w-full p-2 border rounded-md"></textarea>
-            <input *ngSwitchCase="'Integer'" type="number" placeholder="Enter number"
-                class="w-full p-2 border rounded-md" />
-            <input *ngSwitchCase="'Date'" type="date" class="w-full p-2 border rounded-md" />
-            <input *ngSwitchCase="'Time'" type="time" class="w-full p-2 border rounded-md" />
-            <input *ngSwitchCase="'Date & Time'" type="datetime-local" class="w-full p-2 border rounded-md" />
-            <select *ngSwitchCase="'Dropdown'" class="w-full p-2 border rounded-md">
-                <option>Option 1</option>
-                <option>Option 2</option>
-                <option>Option 3</option>
-            </select>
-            <div *ngSwitchCase="'Single Selection'">
-                <label><input type="radio" name="single-{{i}}" /> Option 1</label>
-                <label><input type="radio" name="single-{{i}}" /> Option 2</label>
-            </div>
-            <div *ngSwitchCase="'Multi Selection'">
-                <label><input type="checkbox" /> Option 1</label>
-                <label><input type="checkbox" /> Option 2</label>
-            </div>
-            <input *ngSwitchCase="'Upload'" type="file" class="w-full p-2 border rounded-md" />
-        </ng-container>
+    <div class="grow">
+        <app-generate-form></app-generate-form>
     </div>
 </div>
