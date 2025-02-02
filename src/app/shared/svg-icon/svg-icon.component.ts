@@ -4,7 +4,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   selector: 'app-svg-icon',
   template: `
     <img 
-      [src]="'/assets/icons/' + name + '.svg'" 
+      [src]="'./assets/icons/' + name + '.svg'" 
       [alt]="name" 
       width="24" 
       height="24" 

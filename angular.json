@@ -17,8 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ZuperDemo",
-            "baseHref": "/ZuperDemo/browser/",
+            "outputPath": {
+              "base": "dist/ZuperDemo",
+              "browser": ""
+            },
+            "baseHref": "/ZuperDemo/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
