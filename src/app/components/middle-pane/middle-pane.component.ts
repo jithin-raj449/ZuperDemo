@@ -44,4 +44,9 @@ export class MiddlePaneComponent implements OnInit {
     this.service.deleteFieldGroup(this.selectedFieldGroup.id);
   }
 
+  duplicateFieldGroup() {
+    const duplicate = { ...this.selectedFieldGroup, id: Date.now(), default: false };
+    this.service.duplicateFieldGroup(duplicate);
+  }
+
 }

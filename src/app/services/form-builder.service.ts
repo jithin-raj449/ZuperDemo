@@ -38,6 +38,7 @@ export class FormBuilderService {
     const savedGroups = localStorage.getItem('fieldGroups');
     if (savedGroups) {
       this.setFiledGroupListData(JSON.parse(savedGroups));
+      this.setSelectFiledGroup(JSON.parse(savedGroups)[0])
     }
   }
 
@@ -70,6 +71,12 @@ export class FormBuilderService {
       currentFieldGroup.elemntsList[index] = item;
       this.updateFieldGroupList(currentFieldGroup);
     }
+  }
+
+  duplicateFieldGroup(duplicate: FieldGroup) {
+    let currentList = this.filedGroupList.getValue();
+    currentList = [...currentList, duplicate];
+    this.setFiledGroupListData(currentList);
   }
 
   toggleModal(state: boolean, item: Object) {

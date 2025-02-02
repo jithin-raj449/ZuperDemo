@@ -8,7 +8,7 @@
 
                 <app-svg-icon (iconClick)="editStatus = true" name="edit"></app-svg-icon>
 
-                <app-svg-icon name="duplicate"></app-svg-icon>
+                <app-svg-icon (iconClick)="duplicateFieldGroup()" name="duplicate"></app-svg-icon>
 
                 <app-svg-icon (iconClick)="deleteFieldGroup()" *ngIf="!selectedFieldGroup.default"
                     name="delete"></app-svg-icon>

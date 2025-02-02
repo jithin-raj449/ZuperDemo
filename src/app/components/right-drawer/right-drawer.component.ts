@@ -53,7 +53,6 @@ export class RightDrawerComponent {
     this.service.editElement$.subscribe((data) => {
       if (data) {
         this.editElement = data;
-        console.log('this.editElement ', this.editElement)
       }
     });
   }
@@ -64,7 +63,6 @@ export class RightDrawerComponent {
 
   saveFieldProperties() {
     this.closeModal();
-    console.log('this.editElement111111111', this.editElement);
     this.service.updateFieldProperty(this.editElement);
   }
 

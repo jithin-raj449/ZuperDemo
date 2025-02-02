@@ -3,7 +3,6 @@ import { RightPaneComponent } from '../../components/right-pane/right-pane.compo
 import { LeftPaneComponent } from '../../components/left-pane/left-pane.component';
 import { RightDrawerComponent } from '../../components/right-drawer/right-drawer.component';
 import { MiddlePaneComponent } from '../../components/middle-pane/middle-pane.component';
-import { PreviewPaneComponent } from '../../components/preview-pane/preview-pane.component';
 
 @Component({
   selector: 'app-form-builder',
@@ -11,8 +10,7 @@ import { PreviewPaneComponent } from '../../components/preview-pane/preview-pane
     LeftPaneComponent,
     RightPaneComponent,
     RightDrawerComponent,
-    MiddlePaneComponent,
-    PreviewPaneComponent
+    MiddlePaneComponent
   ],
   templateUrl: './form-builder.component.html',
   styleUrl: './form-builder.component.scss'
