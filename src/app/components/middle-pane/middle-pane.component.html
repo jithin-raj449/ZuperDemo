@@ -1,1 +1,42 @@
-<p>middle-pane works!</p>
+<div class="middle-pane-layout">
+    <div class="filed-group-header bg-white p-5 panel" [formGroup]="editForm">
+        <div class="flex items-center justify-between">
+
+            @if (!editStatus) {
+            <h2>{{ selectedFieldGroup.name }}</h2>
+            <div class="action-list flex gap-2">
+
+                <app-svg-icon (iconClick)="editStatus = true" name="edit"></app-svg-icon>
+
+                <app-svg-icon name="duplicate"></app-svg-icon>
+
+                <app-svg-icon (iconClick)="deleteFieldGroup()" *ngIf="!selectedFieldGroup.default"
+                    name="delete"></app-svg-icon>
+
+            </div>
+            } @else {
+            <input type="text" formControlName="name" class="w-full  text-m focus:outline-none" name="description"
+                id="description" placeholder="Add title...">
+            <div class="action-list flex gap-2">
+                <button [disabled]="!editForm.valid" (click)="saveFieldGroup()" [ngClass]="{ 
+                    'hover:bg-[#1da1f2]/90': editForm.valid, 
+                    'bg-[#1da1f2]/75': !editForm.valid 
+                  }" class="text-s text-white p-2 bg-[#1da1f2]/100 font-small rounded-lg">Save</button>
+            </div>
+            }
+        </div>
+
+        <div class="description mt-2">
+            @if (!editStatus) {
+            <span>
+                {{ selectedFieldGroup.description }}
+            </span>
+            } @else {
+            <input type="text" formControlName="description" class="w-full  text-m focus:outline-none"
+                name="description" id="description" placeholder="Add description...">
+            }
+
+        </div>
+
+    </div>
+</div>

@@ -3,11 +3,7 @@
     <span class="text-lg font-medium">Field Groups</span>
     <button type="button" (click)="addFieldGroup()"
       class="text-s text-[#1da1f2]/100 font-small text-center inline-flex items-center hover:text-[#1da1f2]/75 ">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-        <path fill-rule="evenodd"
-          d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
-          clip-rule="evenodd" />
-      </svg>
+      <app-svg-icon name="create"></app-svg-icon>
       <span class="ml-2">Create new</span>
     </button>
   </div>
@@ -15,12 +11,9 @@
   <!-- List of Field Groups -->
   <ul class="field-group-list">
     @for (group of fieldGroups; track $index) {
-    <li class="flex flex justify-content items-center p-2 mb-3">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-        class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M8.242 5.992h12m-12 6.003H20.24m-12 5.999h12M4.117 7.495v-3.75H2.99m1.125 3.75H2.99m1.125 0H5.24m-1.92 2.577a1.125 1.125 0 1 1 1.591 1.59l-1.83 1.83h2.16M2.99 15.745h1.125a1.125 1.125 0 0 1 0 2.25H3.74m0-.002h.375a1.125 1.125 0 0 1 0 2.25H2.99" />
-      </svg>
+    <li class="flex flex justify-content items-center p-2 mb-3" (click)="selectFieldGroup(group)">
+
+      <app-svg-icon name="list"></app-svg-icon>
 
       <span class="ml-2">{{ group.name }} </span>
 

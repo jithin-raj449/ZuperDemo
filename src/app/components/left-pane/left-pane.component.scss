@@ -1,8 +1,8 @@
-$border-color: #e7e7e7;
+@use '../../../assets/styles/variables';
 
 .field-group-list {
     li {
-        border: 1px solid $border-color;
+        border: 1px solid variables.$border-color;
         border-radius: 8px;
         color: #404040;
 
@@ -19,7 +19,7 @@ $border-color: #e7e7e7;
 
     .line {
         height: 2px;
-        background: $border-color;
+        background: variables.$border-color;
         margin: 10px 0;
     }
 }
