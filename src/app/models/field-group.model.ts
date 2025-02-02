@@ -3,4 +3,5 @@ export interface FieldGroup {
     name: string;
     description: string;
     default?: boolean;
+    elemntsList?: any[]
 }

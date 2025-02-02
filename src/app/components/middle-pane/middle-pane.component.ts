@@ -37,13 +37,11 @@ export class MiddlePaneComponent implements OnInit {
     this.selectedFieldGroup.name = values.name;
     this.selectedFieldGroup.description = values.description;
     this.editStatus = false;
-    this.service.updateFieldGroup(this.selectedFieldGroup)
+    this.service.updateFieldGroupList(this.selectedFieldGroup)
   }
 
   deleteFieldGroup() {
     this.service.deleteFieldGroup(this.selectedFieldGroup.id);
   }
-
-
 
 }

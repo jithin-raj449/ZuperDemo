@@ -8,53 +8,53 @@
 
         <div class="right p-4 w-full">
             <div class="flex align-center justify-between mb-3">
-                <!-- <button (click)="removeField($index)" class="absolute top-2 right-2 text-red-500 hover:text-red-700">
-                    ✖️
-                </button> -->
-
-
-
-                <label class="block text-gray-700 font-medium mb-1">
-                    {{ field.type }}
+                <label class="block text-gray-700 font-medium mb-1" [ngClass]="{ 'required': field.required }">
+                    {{ field.label }}
                 </label>
 
                 <div class="action-list flex gap-2">
-                    <app-svg-icon name="edit"></app-svg-icon>
+                    <app-svg-icon [id]="field.id" (iconClick)="openDrawer($event)" name="edit"></app-svg-icon>
 
                     <app-svg-icon name="duplicate"></app-svg-icon>
 
-                    <app-svg-icon [id]="$index" (iconClick)="removeField($event)" name="delete"></app-svg-icon>
+                    <app-svg-icon [id]="field.id" (iconClick)="removeField($event)" name="delete"></app-svg-icon>
 
                 </div>
             </div>
 
+            <div class="description">
+                <span>
+                    {{ field.descrption }}
+                </span>
+            </div>
+
             <div>
                 @switch (field.type) {
-                @case ('Single Line Text') {
+                @case ('single_line_text') {
                 <input type="text" placeholder="Enter text" class="w-full p-2 border rounded-md" />
                 }
 
-                @case ('Multi Line Text') {
+                @case ('multi_line_text') {
                 <textarea placeholder="Enter text" class="w-full p-2 border rounded-md"></textarea>
                 }
 
-                @case ('Integer') {
+                @case ('integer') {
                 <input type="number" placeholder="Enter number" class="w-full p-2 border rounded-md" />
                 }
 
-                @case ('Date') {
+                @case ('date') {
                 <input type="date" class="w-full p-2 border rounded-md" />
                 }
 
-                @case ('Time') {
+                @case ('time') {
                 <input type="time" class="w-full p-2 border rounded-md" />
                 }
 
-                @case ('Date & Time') {
+                @case ('date_time') {
                 <input type="datetime-local" class="w-full p-2 border rounded-md" />
                 }
 
-                @case ('Dropdown') {
+                @case ('dropdown') {
                 <select class="w-full p-2 border rounded-md">
                     <option>Option 1</option>
                     <option>Option 2</option>
@@ -62,7 +62,7 @@
                 </select>
                 }
 
-                @case ('Single Selection') {
+                @case ('single_selection') {
                 <div class="space-y-1">
                     <label class="flex items-center space-x-2">
                         <input type="radio" name="single-{{ $index }}" /> <span>Option 1</span>
@@ -73,7 +73,7 @@
                 </div>
                 }
 
-                @case ('Multi Selection') {
+                @case ('multi_selection') {
                 <div class="space-y-1">
                     <label class="flex items-center space-x-2">
                         <input type="checkbox" /> <span>Option 1</span>
@@ -84,7 +84,7 @@
                 </div>
                 }
 
-                @case ('Upload') {
+                @case ('upload') {
                 <input type="file" class="w-full p-2 border rounded-md" />
                 }
                 }

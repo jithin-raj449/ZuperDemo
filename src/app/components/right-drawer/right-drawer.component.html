@@ -1,1 +1,36 @@
-<p>right-drawer works!</p>
+@if(isOpen) {
+<div class="fixed inset-0 z-50 flex justify-end items-start bg-gray-800 bg-opacity-50">
+    <div class="w-1/3 h-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out"
+        [ngClass]="{'translate-x-0': isOpen, '-translate-x-full': !isOpen}">
+
+        <div class="p-4 mt-4">
+            @for (item of fieldList; track $index) {
+            <div class="mb-2 p-2">
+                @switch (item.type) {
+                @case ('text') {
+                <label [for]="item.feild">{{ item.label }}</label>
+                <input type="text" [(ngModel)]="editElement[item.feild]" class="w-full p-2 border rounded-md" />
+                }
+
+                @case ('check') {
+                <label class="flex items-center space-x-2">
+                    <span>{{ item.label }}</span> <input type="checkbox" [(ngModel)]="editElement[item.feild]" />
+                </label>
+                }
+                }
+            </div>
+            }
+            <div class="flex items-center justify-center gap-2">
+                <Button (click)="closeModal()" type="button"
+                    class="rounded-md bg-gray bg-[#f56a6a]/100 text-white hover:bg-[#f56a6a]/70"
+                    style="height: 45px;width: 127px">Cancel</Button>
+
+                <Button (click)="saveFieldProperties()" type="button"
+                    class="rounded-md bg-gray bg-[#1da1f2]/100 text-white hover:bg-[#1da1f2]/70"
+                    style="height: 45px;width: 127px">Save</Button>
+            </div>
+
+        </div>
+    </div>
+</div>
+}

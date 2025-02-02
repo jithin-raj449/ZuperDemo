@@ -26,32 +26,37 @@ export class RightPaneComponent {
 
   formElements = [
     {
-      category: 'TEXT', items: [
-        { type: 'Single Line Text', description: 'Single text area', icon: 'alphabet' },
-        { type: 'Multi Line Text', description: 'Multi text area', icon: 'multiline' },
-        { type: 'Integer', description: 'Integer type area', icon: 'number' }
+      category: 'TEXT',
+      items: [
+        { label: 'Single Line Text', type: 'single_line_text', description: 'Single text area', icon: 'alphabet', fieldName: '', required: false, placeholder: '' },
+        { label: 'Multi Line Text', type: 'multi_line_text', description: 'Multi text area', icon: 'multiline', fieldName: '', required: false, placeholder: '' },
+        { label: 'Integer', type: 'integer', description: 'Integer type area', icon: 'number', fieldName: '', required: false, placeholder: '' }
       ]
     },
     {
-      category: 'DATE', items: [
-        { type: 'Date', description: 'Select date from datepicker.', icon: 'calender' },
-        { type: 'Time', description: 'Select time from timepicker.', icon: 'time' },
-        { type: 'Date & Time', description: 'Select date & time from picker.', icon: 'date_and_time' }
+      category: 'DATE',
+      items: [
+        { label: 'Date', type: 'date', description: 'Select date from datepicker.', icon: 'calender', fieldName: '', required: false, placeholder: '' },
+        { label: 'Time', type: 'time', description: 'Select time from timepicker.', icon: 'time', fieldName: '', required: false, placeholder: '' },
+        { label: 'Date & Time', type: 'date_time', description: 'Select date & time from picker.', icon: 'date_and_time', fieldName: '', required: false, placeholder: '' }
       ]
     },
     {
-      category: 'MULTI', items: [
-        { type: 'Single Selection', description: 'Select single option.', icon: 'selection' },
-        { type: 'Multi Selection', description: 'Select multiple options.', icon: 'check_circle' },
-        { type: 'Dropdown', description: 'Select options from dropdown.', icon: 'list' }
+      category: 'MULTI',
+      items: [
+        { label: 'Single Selection', type: 'single_selection', description: 'Select single option.', icon: 'selection', fieldName: '', required: false, placeholder: '' },
+        { label: 'Multi Selection', type: 'multi_selection', description: 'Select multiple options.', icon: 'check_circle', fieldName: '', required: false, placeholder: '' },
+        { label: 'Dropdown', type: 'dropdown', description: 'Select options from dropdown.', icon: 'list', fieldName: '', required: false, placeholder: '' }
       ]
     },
     {
-      category: 'MEDIA', items: [
-        { type: 'Upload', description: 'Upload documents/media files.', icon: 'upload' }
+      category: 'MEDIA',
+      items: [
+        { label: 'Upload', type: 'upload', description: 'Upload documents/media files.', icon: 'upload', fieldName: '', required: false, placeholder: '' }
       ]
     }
   ];
+
 
   searchQuery = '';
 

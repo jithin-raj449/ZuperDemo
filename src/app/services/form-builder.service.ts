@@ -12,7 +12,8 @@ export class FormBuilderService {
       id: Date.now(),
       name: 'Defualt field group',
       description: 'Defualt Description',
-      default: true
+      default: true,
+      elemntsList: []
     }
   ]
 
@@ -25,6 +26,12 @@ export class FormBuilderService {
 
   private selectFiledGroup = new BehaviorSubject<FieldGroup | null>(this.defualtFiledGroup[0]);
   selectFiledGroup$ = this.selectFiledGroup.asObservable();
+
+  private modalStateSubject = new BehaviorSubject<boolean>(false);
+  modalState$ = this.modalStateSubject.asObservable();
+
+  private editElement = new BehaviorSubject<Object>({});
+  editElement$ = this.editElement.asObservable();
 
 
   loadFieldGroups() {
@@ -49,10 +56,33 @@ export class FormBuilderService {
     this.setSelectFiledGroup(currentList[0])
   }
 
-  updateFieldGroup(item: FieldGroup) {
+  updateFieldGroupList(item: FieldGroup) {
     let currentList = this.filedGroupList.getValue();
     const index = currentList.findIndex((el) => el.id === item.id);
     currentList[index] = { ...item };
     this.filedGroupList.next(currentList);
+  }
+
+  updateFieldProperty(item: any) {
+    let currentFieldGroup = this.selectFiledGroup.getValue();
+    if (currentFieldGroup && currentFieldGroup?.elemntsList?.length) {
+      const index = currentFieldGroup.elemntsList.findIndex((el) => el.id === item.id);
+      currentFieldGroup.elemntsList[index] = item;
+      this.updateFieldGroupList(currentFieldGroup);
+    }
+  }
+
+  toggleModal(state: boolean, item: Object) {
+    this.modalStateSubject.next(state);
+
+    if (Object.keys(item).length) {
+      this.editElement.next(item);
+    }
+
+    if (state) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   }
 }
