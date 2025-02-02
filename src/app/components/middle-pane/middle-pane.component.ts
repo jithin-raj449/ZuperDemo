@@ -43,4 +43,23 @@ export class MiddlePaneComponent implements OnInit {
     this.service.deleteFieldGroup(this.selectedFieldGroup.id);
   }
 
+
+  formFields: any[] = [];
+
+  onDrop(event: DragEvent) {
+    event.preventDefault();
+    const data = event.dataTransfer?.getData('application/json');
+    if (data) {
+      this.formFields.push(JSON.parse(data));
+    }
+  }
+
+  allowDrop(event: DragEvent) {
+    event.preventDefault();
+  }
+
+  removeField(index: number) {
+    this.formFields.splice(index, 1);
+  }
+
 }

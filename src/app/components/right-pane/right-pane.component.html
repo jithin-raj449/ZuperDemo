@@ -1,1 +1,39 @@
-<p>right-pane works!</p>
+<div class="bg-white h-full">
+
+    <div class="search p-4">
+        <h3 class="text-gray-500 mb-4">Elements</h3>
+
+        <label for="default-search"
+            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+        <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                </svg>
+            </div>
+            <input [(ngModel)]="searchQuery" type="text" id="default-search"
+                class="block w-full p-4 ps-10 text-sm text-gray-900 focus:outline-none rounded-lg bg-gray-200 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
+                placeholder="Search anything" />
+        </div>
+    </div>
+
+    @for (section of filterElements(); track $index) {
+    <div class="p-4" style="border-bottom: 1px solid #e7e7e7;">
+        <h3 class="text-sm font-semibold text-gray-500 mt-4 mb-2">{{ section.category }}</h3>
+        @for (element of section.items; track $index) {
+        <div class="flex items-center p-3 mb-2 cursor-move hover:bg-gray-100" draggable="true"
+            (dragstart)="onDragStart($event, element)">
+            <div class="icon bg-[#f1f1f1] p-3 rounded-md mr-2">
+                <app-svg-icon [name]="element.icon"></app-svg-icon>
+            </div>
+            <div>
+                <div class="font-medium">{{ element.type }}</div>
+                <div class="text-sm text-gray-500">{{ element.description }}</div>
+            </div>
+        </div>
+        }
+    </div>
+    }
+</div>

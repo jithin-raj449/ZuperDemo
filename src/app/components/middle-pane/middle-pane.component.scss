@@ -10,3 +10,22 @@
         }
     }
 }
+
+
+.p-4 {
+    min-height: 400px;
+    border: 2px dashed #cbd5e0;
+    transition: background-color 0.3s;
+}
+
+.p-4:hover {
+    background-color: #f7fafc;
+}
+
+button {
+    transition: color 0.2s;
+}
+
+button:hover {
+    color: #b91c1c;
+}
