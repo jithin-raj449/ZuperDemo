@@ -1,11 +1,28 @@
 # ZuperDemo
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+This project was generated using 
+[Angular CLI](https://github.com/angular/angular-cli) version 19.1.4. 
+Node: v22.13.1
 
 ## Development server
 
-To start a local development server, run:
+To start a local development server
 
+Start by cloning this repository to your local machine:
+```bash
+https://github.com/jithin-raj449/ZuperDemo.git
+```
+Navigate into the project directory:
+`cd ZuperDemo`
+
+Install all the necessary dependencies for the project:
+```bash
+npm install
+```
+This will install the dependencies specified in package.json and set up your project for development.
+
+
+To start the application locally, run the following command:
 ```bash
 ng serve
 ```
@@ -36,23 +53,12 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Live Application
+You can access the live version of the app at:
+
+https://jithin-raj449.github.io/ZuperDemo/
 
 ## Additional Resources
 
