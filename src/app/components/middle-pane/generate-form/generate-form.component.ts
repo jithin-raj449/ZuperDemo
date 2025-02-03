@@ -4,10 +4,26 @@ import { SvgIconComponent } from '../../../shared/svg-icon/svg-icon.component';
 import { CommonModule } from '@angular/common';
 import { FormBuilderService } from '../../../services/form-builder.service';
 import { FieldGroup } from '../../../models';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+  CdkDrag,
+  CdkDropList,
+  CdkDragHandle,
+} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-generate-form',
-  imports: [FormsModule, ReactiveFormsModule, CommonModule, SvgIconComponent],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    SvgIconComponent,
+    CdkDropList,
+    CdkDrag,
+    CdkDragHandle
+  ],
   templateUrl: './generate-form.component.html',
   styleUrl: './generate-form.component.scss'
 })
@@ -60,5 +76,20 @@ export class GenerateFormComponent implements OnInit {
     const item = this.formFields.find((el) => el.id === id);
     this.service.toggleModal(true, item);
   }
+
+  drop(event: CdkDragDrop<number[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
+    this.updateFormFields();
+  }
+
 
 }
